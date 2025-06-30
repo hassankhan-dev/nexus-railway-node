@@ -4,7 +4,8 @@ RUN apt-get update && \
     apt-get install -y curl unzip screen
 
 # Install Nexus CLI
-RUN curl -s https://nexus.xyz/install.sh | bash
+RUN curl -L https://github.com/Nexus-Labs/nexus-cli/releases/latest/download/nexus-linux-amd64 -o /usr/local/bin/nexus && \
+    chmod +x /usr/local/bin/nexus
 
 # Add your startup script
 COPY ./start.sh /start.sh
